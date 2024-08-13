@@ -8,7 +8,7 @@ COPY beautifulImages/ ./beautifulImages/
 COPY transparent-background.js .
 RUN npm install && node transparent-background.js && rm -rf /root/.cache/ node_modules
 
-FROM node:lts
+FROM node:lts-alpine
 WORKDIR /app
 RUN mkdir /data/
 COPY --from=builder /app/beautifulImages-removebg/ /app/beautifulImages-removebg/
